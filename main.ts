@@ -17,25 +17,15 @@ function renderSerieInTable(series: Serie[]): void {
                              <td>${series.channel}</td>
                              <td>${series.seasons}</td>`;
       seriesTbody.appendChild(trElement);
-      trElement.addEventListener("click", () => renderCard(series));
+      
     });
   }
 
 function getSeasonsAverage(series: Serie[]): number {
   let totalSeasons: number = 0;
-  dataSeries.forEach((dataSerie) => totalSeasons = totalSeasons + dataSerie.seasons);
+  dataSeries.forEach((series) => totalSeasons = totalSeasons + series.seasons);
   let seasonsAverage: number = totalSeasons/dataSeries.length;
   return seasonsAverage;
 }
 
-function renderCard(serie: Serie): void {
-    let card: HTMLElement = document.getElementById("idcard")!;
-    card.innerHTML = `<div class="card" id="idcard">
-    <img src="${serie.image}" class="card-img-top" alt="Image">
-    <div class="card-body">
-      <h5 class="card-title">${serie.name}</h5>
-      <p class="card-text">${serie.description}</p>
-      <a href="${serie.link}">${serie.link}</a>
-    </div>
-  </div>`;
-}
+
